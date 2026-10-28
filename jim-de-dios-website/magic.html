@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Magic | Jim De Dios</title>
+<meta name="description" content="Jim De Dios: event host, magician and DeDios Audio and Lights for birthdays, weddings, debuts and corporate events in Negros Occidental.">
+<meta name="theme-color" content="#0b0607">
+<script>(function(d){d.classList.add('js');var s=false;try{s=document.referrer&&new URL(document.referrer).host===location.host&&location.protocol!=='file:'}catch(e){}if(!s&&!matchMedia('(prefers-reduced-motion:reduce)').matches)d.classList.add('intro-on')})(document.documentElement)</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230b0607'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='%23f2d9b0' font-family='Georgia,serif'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hdr" id="hd"><div class="wrap nav">
+<a href="index.html" class="logo">Jim De Dios</a>
+<button class="burger" id="bg" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+<ul id="menu"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="magic.html" class=on>Magic</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="faq.html">FAQ</a></li><li><a class="cta" href="book.html">Book a date</a></li></ul></div></header>
+<main>
+
+<section class="pagehead"><div class="wrap"><span class="eyebrow">The magician</span><h1>Magic you can <em>feel</em></h1><p>Close-up wonders and stage illusions for every age.</p></div></section>
+<section class="stage"><canvas id="fx" aria-hidden="true"></canvas><div class="wrap">
+<span class="eyebrow">A little taste</span><h2>Pick a card. <em>Any card.</em></h2>
+<p class="lead">Think it’s random? Tap one and see.</p>
+<div class="cardrow" id="cards">
+<button class="pc" style="--n:0" aria-label="Card 1"><i>✦</i><b></b></button><button class="pc" style="--n:1" aria-label="Card 2"><i>✦</i><b></b></button><button class="pc" style="--n:2" aria-label="Card 3"><i>✦</i><b></b></button>
+</div>
+<p id="say" aria-live="polite">&nbsp;</p>
+<article class="jim" id="jim" hidden aria-label="About Jim De Dios">
+<figure class="jim-ph"><img src="images/jim-de-dios.jpg" alt="Portrait of Jim De Dios in a black suit" width="720" height="1080" loading="lazy"></figure>
+<div class="jim-tx"><span class="eyebrow">Your magician</span><h3>Hi, I’m <em>Jim De Dios.</em></h3>
+<p>I’m a live event host, a magician and the face behind DeDios Audio and Lights. I keep your program flowing, leave your guests speechless and make sure everything sounds and looks incredible, from the first cue to the last song.</p>
+<ul class="jim-f"><li><b>What I do</b>Host · Magic · Sound &amp; lights</li><li><b>Languages</b>English, Filipino and Bisaya</li><li><b>Based in</b>Negros Occidental</li><li><b>Magic style</b>Close-up, stage, comedy and mentalism</li></ul>
+<a class="btn" href="book.html">Book Jim</a></div>
+</article>
+<a class="btn" id="bk" href="book.html" style="margin-top:20px">Book the magic</a>
+</div></section>
+
+</main>
+<footer><div class="wrap fgrid">
+<div><div class="logo">Jim De Dios</div><div class="cp">Event host · Magician · DeDios Audio and Lights<br>&copy; <span id="yr"></span> Jim De Dios. All rights reserved.</div></div>
+<div><h4>Explore</h4><a href="index.html">Home</a><a href="services.html">Services</a><a href="magic.html">Magic</a><a href="gallery.html">Gallery</a><a href="faq.html">FAQ</a></div>
+<div><h4>Book</h4><a href="book.html">Check my date</a><a href="https://m.me/jim.c.de.dios" target="_blank" rel="noopener">Messenger</a><a href="tel:+639000000000">[+63 900 000 0000]</a></div>
+<div><h4>Connect</h4><a href="https://www.facebook.com/jim.c.de.dios" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@jimagicsarap" target="_blank" rel="noopener">TikTok</a><a href="https://www.instagram.com/jim_mail/" target="_blank" rel="noopener">Instagram</a></div>
+</div></footer>
+<a class="btn fab" href="https://m.me/jim.c.de.dios" target="_blank" rel="noopener" aria-label="Message on Facebook Messenger">Message us</a>
+<div class="lb" id="lb" role="dialog" aria-label="Photo viewer"><img alt=""></div>
+<script src="app.js"></script>
+</body>
+</html>

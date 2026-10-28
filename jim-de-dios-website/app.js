@@ -1,3 +1,4 @@
+window.__ok=1; // tells the page the script loaded (see safety net in each page's <head>)
 const EMAIL='YOUR_EMAIL@gmail.com'; // inquiries open in the visitor’s email app, addressed here
 const $=s=>document.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const root=document.documentElement;

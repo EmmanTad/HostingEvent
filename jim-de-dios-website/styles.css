@@ -494,6 +494,21 @@ fieldset label{padding:8px 12px}
 }
 @media(hover:none) and (max-width:760px){.sizes div:hover{padding-left:22px}}
 @media(hover:none) and (max-width:600px){.fq-i summary:hover{padding-left:18px}}
+/* touch-device performance mode: keep the show, drop the effects that repaint every frame */
+@media(pointer:coarse){
+.dark::before,.contact::before,.stage::before,.band::before{animation:none}
+html.go .hc.l{animation:hcL 1.6s var(--ease) .1s forwards}
+html.go .hc.r{animation:hcR 1.6s var(--ease) .1s forwards}
+html.go .mark{animation:none}
+.beam{filter:none;opacity:.1}
+.i-beam{filter:blur(6px)}
+.cardrow.dealt .pc.pick b{animation:none;filter:drop-shadow(0 0 18px rgba(242,217,176,.8))}
+.i-c{will-change:transform,clip-path}
+.photos img{animation:none}
+}
+/* once revealed, always settle (beats the phone/tablet start-offset rules) */
+.js .rv[data-a].in,.js .rv.in{opacity:1;transform:none}
+.js .rv[data-a=curtain].in{clip-path:inset(0 0 0 0)}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 .js .rv,.js .card li,.js .pkg li,.js .nav li,.js .ch{opacity:1!important;transform:none!important;translate:none!important;clip-path:none!important}
 .wi{transform:none!important}.pc{opacity:1}.hc{opacity:1}#intro{display:none!important}}

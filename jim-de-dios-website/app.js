@@ -1,5 +1,5 @@
 window.__ok=1; // tells the page the script loaded (see safety net in each page's <head>)
-const EMAIL='YOUR_EMAIL@gmail.com'; // inquiries open in the visitor’s email app, addressed here
+const FORM_URL='https://formspree.io/f/mzeevpyg'; // booking inquiries are sent through Formspree to the owner’s email
 const $=s=>document.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const root=document.documentElement;
 const calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -58,7 +58,7 @@ set('.dj>.rv:first-child','left',0);set('.dj>.rv:last-child','right',.15);
 set('.cards .card','up',.16);set('.photos figure','curtain',.3,{base:.15});
 set('.sub,.head,.caption,.gtitle,.soon',null,0);
 set('.occ span','pop',.07);set('.t','flip',.16);set('.pkg','zoom',.16);
-set('.specs div','zoom',.1);set('.sizes div','right',.12);
+set('.specs div','zoom',.1);set('.svc','up',.1,{mod:4});set('.sizes div','right',.12);
 set('.gjump button','pop',.05);set('.ph','curtain',.09,{mod:3});
 set('.band .wrap','zoom',0);
 set('.contact .grid2>div:first-child>*','up',.1);set('.contact .grid2>form','right',.1);
@@ -184,11 +184,23 @@ lb.onclick=()=>lb.classList.remove('on');
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
 // booking form (Book page): opens an email draft
 const f=$('#f');
-if(f)f.onsubmit=e=>{e.preventDefault();const d=new FormData(f),sv=d.getAll('s').join(', ')||'Not specified';
- const body=`Name: ${d.get('n')}\nPhone: ${d.get('p')}\nServices: ${sv}\nEvent: ${d.get('t')} on ${d.get('d')}\nVenue: ${d.get('v')||'-'}\nGuests: ${d.get('g')||'-'}\nNotes: ${d.get('m')||'-'}`;
- location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Event inquiry: '+d.get('t')+' on '+d.get('d'))}&body=${encodeURIComponent(body)}`;
- const ok=$('#ok');ok.classList.remove('pop');void ok.offsetWidth;ok.classList.add('pop');
- ok.textContent='Opening your email app. Hit send and we’ll get back to you soon!'};
+const ag=$('#again');if(ag)ag.onclick=()=>{f.classList.remove('sent');f.querySelector('input[name=n]').focus()};
+// pre-select services passed from the Services page (?s=Name,Name)
+if(f){const q=new URLSearchParams(location.search).get('s');
+ if(q){const w=q.split(',').map(x=>x.trim());f.querySelectorAll('input[name=s]').forEach(i=>i.checked=w.includes(i.value))}}
+if(f)f.onsubmit=async e=>{e.preventDefault();
+ const d=new FormData(f),sv=d.getAll('s').join(', ')||'Not specified',ok=$('#ok'),btn=f.querySelector('button[type=submit]');
+ const say=t=>{ok.classList.remove('pop');void ok.offsetWidth;ok.classList.add('pop');ok.textContent=t};
+ const ft=t=>{if(!t)return'-';const[h,m]=t.split(':').map(Number);return(h%12||12)+':'+String(m).padStart(2,'0')+' '+(h<12?'AM':'PM')};
+ const data={Name:d.get('n'),Phone:d.get('p'),Services:sv,'Event type':d.get('t'),'Event date':d.get('d'),'Event time':ft(d.get('tm')),Venue:d.get('v')||'-',Guests:d.get('g')||'-',Notes:d.get('m')||'-',_subject:'Event inquiry: '+d.get('t')+' on '+d.get('d')+' at '+ft(d.get('tm')),_gotcha:d.get('_gotcha')||''};
+ btn.disabled=true;say('Sending your inquiry…');
+ try{const r=await fetch(FORM_URL,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)});
+  if(!r.ok)throw 0;
+  const when=new Date(d.get('d')+'T00:00').toLocaleDateString('en-PH',{weekday:'long',month:'long',day:'numeric',year:'numeric'})+' at '+ft(d.get('tm'));
+  $('#tn').textContent=(d.get('n')||'friend').trim().split(' ')[0];$('#td').textContent=d.get('t')+' on '+when;
+  f.reset();say('');f.classList.add('sent');const th=$('#thanks');th.classList.add('in','done');th.focus({preventScroll:true});f.scrollIntoView({behavior:'smooth',block:'center'})}
+ catch(_){say('Sorry, that didn’t send. Please message us on Messenger or call +63 961 219 2189.')}
+ btn.disabled=false};
 
 // gallery filter (Gallery page) — photos re-deal with a curtain reveal on every filter change
 const gal=$('#gal');

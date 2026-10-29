@@ -5,10 +5,11 @@ Theme: "Velvet Stage" — black stage, crimson velvet, champagne spotlight and i
 
 ## Editing
 - Colors and fonts: the :root block at the top of styles.css.
-- Booking email: set EMAIL at the top of app.js.
-- Phone number: replace [+63 900 000 0000] and tel:+639000000000 in book.html and the footer of every page.
+- Booking form: inquiries are sent through Formspree. The form link is FORM_URL at the top of app.js; inquiries arrive in the email set on your Formspree account.
+- Phone number: replace +63 961 219 2189 and tel:+639612192189 in book.html and the footer of every page.
 - Client reviews: replace the [bracketed] text in index.html.
 - FAQ: copy a `<details class="fq-i">` block in faq.html to add a question; group headings are the `<h2 class="fq-t">` lines. Review the answers (pricing, travel, booking) so they match how you actually work.
+- Services photos: the offerings cards on services.html use temporary illustrations (images/svc-*.svg). Drop in real photos and update each `src`.
 - Gallery: copy a <figure class="ph" data-cat="weddings"> block in gallery.html and set data-cat to the matching filter id.
 
 ## Animation & intro

@@ -544,3 +544,12 @@ form.sent .thanks{display:block;animation:sayin .9s var(--ease)}
 .thanks p{margin:16px auto 0;max-width:42ch;color:#fff;opacity:.9}.thanks b{color:var(--spot);font-weight:500}
 .thanks .tsub{font-size:.95rem;opacity:.75}
 .tbtn{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.contact .info{margin-top:22px}
+.caldate{display:grid;gap:8px}.caldate .cl{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--spot)}.calbtn{width:100%;margin-top:-4px}
+.cal{position:fixed;inset:0;z-index:320;background:rgba(8,2,4,.92);display:grid;place-items:center;padding:20px}
+.cal[hidden]{display:none}
+.calbox{width:min(920px,100%);height:min(88vh,860px);display:flex;flex-direction:column;background:var(--blk);border:1px solid rgba(242,217,176,.35);animation:fadeIn .3s}
+.calhd{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(242,217,176,.25);color:#fff;font-family:var(--serif);font-size:1.25rem}
+.calhd .btn{padding:9px 18px;font-size:.68rem}
+.calbox iframe{flex:1;width:100%;border:0;background:#fff}
+@media(max-width:760px){.cal{padding:0}.calbox{height:100%;width:100%;border:0}}

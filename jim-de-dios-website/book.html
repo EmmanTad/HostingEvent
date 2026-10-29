@@ -28,8 +28,9 @@
 <form id="f">
 <div class="r2"><label>Your name<input name="n" required autocomplete="name"></label><label>Phone<input name="p" type="tel" required autocomplete="tel"></label></div>
 <fieldset><legend>I’m interested in</legend><label><input type="checkbox" name="s" value="Event Host" checked> Host</label><label><input type="checkbox" name="s" value="Magician"> Magician</label><label><input type="checkbox" name="s" value="DeDios Audio and Lights"> Sound &amp; lights</label><label><input type="checkbox" name="s" value="Party Essentials &amp; Decor"> Party essentials &amp; decor</label><label><input type="checkbox" name="s" value="Custom Souvenirs"> Custom souvenirs</label><label><input type="checkbox" name="s" value="Food &amp; Catering"> Food &amp; catering</label><label><input type="checkbox" name="s" value="Photographer &amp; Photobooth"> Photographer &amp; photobooth</label><label><input type="checkbox" name="s" value="Tables, Chairs &amp; Coordination"> Tables, chairs &amp; coordination</label></fieldset>
-<div class="r2"><label>Event type<select name="t"><option>Birthday</option><option>Wedding</option><option>Debut</option><option>Corporate</option><option>Christening</option><option>Other</option></select></label><label>Event date<input name="d" type="date" required></label></div>
-<div class="r2"><label>Event time<input name="tm" type="time" required></label><label>Guests (approx.)<input name="g" type="number" min="1"></label></div>
+<div class="r2"><label>Event type<select name="t"><option>Birthday</option><option>Wedding</option><option>Debut</option><option>Corporate</option><option>Christening</option><option>Other</option></select></label><label>Guests (approx.)<input name="g" type="number" min="1"></label></div>
+<div class="r2"><label>Event date<input name="d" type="date" required></label><label>Event time<input name="tm" type="time" required></label></div>
+<button class="btn ghost calbtn" type="button" id="calOpen" aria-haspopup="dialog">Check available dates</button>
 <label>Venue / location<input name="v"></label>
 <label>Anything else?<textarea name="m" rows="3"></textarea></label>
 <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0">
@@ -46,6 +47,9 @@
 <div><h4>Connect</h4><a href="https://www.facebook.com/jim.c.de.dios" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@jimagicsarap" target="_blank" rel="noopener">TikTok</a><a href="https://www.instagram.com/jim_mail/" target="_blank" rel="noopener">Instagram</a></div>
 </div></footer>
 <a hidden class="btn fab" href="https://m.me/jim.c.de.dios" target="_blank" rel="noopener" aria-label="Message on Facebook Messenger">Message us</a>
+<!-- Google Calendar Appointment Scheduling begin -->
+<div class="cal" id="cal" role="dialog" aria-modal="true" aria-label="Choose your event date" hidden><div class="calbox"><div class="calhd"><span>Choose your event date</span><button class="btn ghost" type="button" id="calX" aria-label="Close">Close</button></div><iframe id="calF" title="Choose your event date" data-src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0MgTJhHZdhoEQdRqLsyEymnjNj1VaEd0CUIMMlaRW2-fXysth8Tup8WHomQEh1jqsacPdeczFh?gv=true" style="border: 0" frameborder="0"></iframe></div></div>
+<!-- end Google Calendar Appointment Scheduling -->
 <div class="lb" id="lb" role="dialog" aria-label="Photo viewer"><img alt=""></div>
 <script src="app.js"></script>
 </body>

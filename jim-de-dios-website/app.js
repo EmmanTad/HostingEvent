@@ -182,6 +182,13 @@ const lb=$('#lb');
 $$('.ph').forEach(p=>p.onclick=()=>{lb.querySelector('img').src=p.querySelector('img').src;lb.classList.add('on')});
 lb.onclick=()=>lb.classList.remove('on');
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+// event date calendar popup (Book page)
+const cal=$('#cal');
+if(cal){const fr=$('#calF'),op=$('#calOpen');
+ const close=()=>{cal.hidden=true;document.body.style.overflow='';op.focus()};
+ op.onclick=()=>{if(!fr.src)fr.src=fr.dataset.src;cal.hidden=false;document.body.style.overflow='hidden';$('#calX').focus()};
+ $('#calX').onclick=close;cal.onclick=e=>{if(e.target===cal)close()};
+ addEventListener('keydown',e=>{if(e.key==='Escape'&&!cal.hidden)close()})}
 // booking form (Book page): opens an email draft
 const f=$('#f');
 const ag=$('#again');if(ag)ag.onclick=()=>{f.classList.remove('sent');f.querySelector('input[name=n]').focus()};
